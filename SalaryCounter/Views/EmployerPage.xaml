@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalaryCounter.Views.EmployerPage"
+             Title="EmployerPage"
+             BackgroundColor="white">
+    <ScrollView>
+        <VerticalStackLayout>
+        <HorizontalStackLayout Margin="20">
+            <Picker x:Name="pickerCommand" Margin="10,0,0,0" WidthRequest="150"
+        Title="Команда:" BackgroundColor="#49CC90" TitleColor="Black"/>
+            <Entry x:Name="FirstNameEntry"  Margin="10,0,0,0" HeightRequest="15" TextColor="Black"  WidthRequest="200" Placeholder="Введите имя" VerticalOptions="End"/>
+                <Border HeightRequest="20" WidthRequest="1" Margin="2" Background="#49CC90"  Stroke="#49CC90"/>
+                <Entry x:Name="LastNameEntry" Margin="10,0,0,0"  HeightRequest="15" TextColor="Black" WidthRequest="200" Placeholder="Введите фамилию" VerticalOptions="End"/>
+                <Border HeightRequest="20" WidthRequest="1" Margin="2" Background="#49CC90"  Stroke="#49CC90"/>
+                <Button TextColor="Black" BackgroundColor="Transparent" BorderWidth="3" BorderColor="#49CC90" WidthRequest="150" HorizontalOptions="Start" Margin="10,10,0,0" Clicked="Clicked" Text="Выполнить"/>
+        </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Entry x:Name="SearchEntry"  Margin="405,0,0,0" HeightRequest="15" TextColor="Black"  WidthRequest="200" Placeholder="Введите имя для поиска" VerticalOptions="End"/>
+                <Button TextColor="Black" BackgroundColor="Transparent" BorderWidth="3" BorderColor="#49CC90" WidthRequest="150" HorizontalOptions="Start" Margin="15,10,0,0" Clicked="Search" Text="Найти"/>
+            </HorizontalStackLayout>
+            
+            <CollectionView x:Name="collectionView" SelectionMode="Single" Margin="100,10,100,10">
+            <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal"></VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#49CC90"></Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Frame  Padding="10" CornerRadius="15" Margin="0,10,0,10" BorderColor="#49CC90" BackgroundColor="Transparent">
+                            <HorizontalStackLayout Margin="10">
+                                <Label TextColor="Black" Margin="0,0,0,0" Text="Id: " FontAttributes="Bold" />
+                                <Label TextColor="Black" Text="{Binding Id}" Margin="5,0,0,0"/>
+                                <Label TextColor="Black" Margin="10,0,0,0" Text="Имя: " FontAttributes="Bold" />
+                                <Label TextColor="Black" Text="{Binding FirstName}" Margin="5,0,0,0"/>
+                                <Label TextColor="Black" Margin="10,0,0,0" Text="Фамилия: " FontAttributes="Bold" />
+                                <Label TextColor="Black" Text="{Binding LastName}" Margin="5,0,0,0" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                        </Grid>
+                    </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

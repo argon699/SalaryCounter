@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalaryCounter.Views.ReportPage"
+             Title="ReportPage"
+             BackgroundColor="White">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Margin="20">
+            <Picker x:Name="pickerCommand" Margin="10,0,0,0" WidthRequest="150"
+                Title="Команда:"/>
+            <Picker x:Name="pickerEmployer" Margin="10,0,0,0" WidthRequest="150"
+                Title="Работник:"/>
+            <Picker x:Name="pickerTask" Margin="10,0,0,0" WidthRequest="150"
+                Title="Задача:"/>
+            <Button Clicked="Clicked"  WidthRequest="150" HorizontalOptions="Start" Margin="10,10,0,0" Text="Выполнить"/>  
+        </HorizontalStackLayout>
+        
+        <Image
+                
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Сгенерируй csv!"
+                HeightRequest="400"
+                HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
